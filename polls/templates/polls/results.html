@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+    <meta charset="UTF-8">
+    <title>Resultado dos votos da enquete</title>
+</head>
+<body>
+    <h1>{{ poll.question }}</h1>
+
+    <ul>
+        {% for choice in poll.choice_set.all %}
+            <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{%  url 'polls:detail' poll.id %}">Votar outra vez?</a>
+
+</body>
+</html>
